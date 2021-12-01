@@ -1,0 +1,9 @@
+.numbers--container {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.btn--container {
+    text-align: center;
+}
