@@ -1,4 +1,3 @@
-// wygenerować 20 liczb całkowitych od 1 do 100
 const generateNumbers = () => {
   let numbers = [];
   while (numbers.length < 20) {
@@ -10,7 +9,6 @@ const generateNumbers = () => {
   return numbers
 }
 
-// podzielić je na parzyste i nieparzyste
 const isEven = (num) => {
   if (num % 2 === 0) {
     return true;
@@ -41,17 +39,18 @@ const splitNumbersIntoColumns = (numbersArray) => {
 
 const displayNumbers = () => {
 
-  const numbersContainer = document.querySelector(".numbers--container");
+  const numbersContainer = document.querySelector(".numbers__container");
   numbersContainer.innerHTML = "";
 
   let numbers = generateNumbers();
   let dividedNumbers = splitNumbersIntoColumns(numbers);
 
   const oddColumn = document.createElement("div");
-  oddColumn.classList.add("numbers--column");
+  oddColumn.classList.add("numbers__column");
 
   let oddTitle = document.createElement("p");
   oddTitle.innerText = "Odd";
+  oddTitle.classList.add("numbers__column--title");
   oddColumn.appendChild(oddTitle);
 
   for (number of dividedNumbers.odd) {
@@ -63,10 +62,11 @@ const displayNumbers = () => {
 
 
   const evenColumn = document.createElement("div");
-  evenColumn.classList.add("numbers--column");
+  evenColumn.classList.add("numbers__column");
 
   let evenTitle = document.createElement("p");
   evenTitle.innerText = "Even";
+  evenTitle.classList.add("numbers__column--title");
   evenColumn.appendChild(evenTitle);
 
   for (number of dividedNumbers.even) {
@@ -77,5 +77,5 @@ const displayNumbers = () => {
   numbersContainer.appendChild(evenColumn);
 }
 
-const button = document.querySelector(".numbers--btn");
+const button = document.querySelector(".btn");
 button.addEventListener("click", displayNumbers);
