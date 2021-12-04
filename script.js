@@ -1,3 +1,4 @@
+// returns an array of 20 unique random numbers from 1 to 100
 const generateNumbers = () => {
   let numbers = [];
   while (numbers.length < 20) {
@@ -9,14 +10,12 @@ const generateNumbers = () => {
   return numbers
 }
 
+// returns true if the number is even
 const isEven = (num) => {
-  if (num % 2 === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return num % 2 === 0;
 }
 
+// returns an object with sorted numbers divided into odd and even
 const splitNumbersIntoColumns = (numbersArray) => {
   let dividedNumbers = {
     even: [],
@@ -37,29 +36,33 @@ const splitNumbersIntoColumns = (numbersArray) => {
   return dividedNumbers;
 }
 
+// displays the numbers in two columns
 const displayNumbers = () => {
-
+  // clear the container before generating new numbers
   const numbersContainer = document.querySelector(".numbers__container");
   numbersContainer.innerHTML = "";
 
+  // generate numbers and split them into evens and odds
   let numbers = generateNumbers();
   let dividedNumbers = splitNumbersIntoColumns(numbers);
 
+  // create a column
   const oddColumn = document.createElement("div");
   oddColumn.classList.add("numbers__column");
 
+  // create title
   let oddTitle = document.createElement("p");
   oddTitle.innerText = "Odd";
   oddTitle.classList.add("numbers__column--title");
   oddColumn.appendChild(oddTitle);
 
+  // populate column with numbers
   for (number of dividedNumbers.odd) {
     let para = document.createElement("p");
     para.innerText = number;
     oddColumn.appendChild(para);
   }
   numbersContainer.appendChild(oddColumn);
-
 
   const evenColumn = document.createElement("div");
   evenColumn.classList.add("numbers__column");
